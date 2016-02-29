@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="config.php" server="192.168.234.129//var/www/html/" local="130148244432315657" remote="130148142000000000" Dst="0" />
+<file name="defines.php" server="192.168.234.129//var/www/html/" local="130148244432370664" remote="130148142000000000" Dst="0" />
+<file name="ImitSqlite.class.php" server="192.168.234.129//var/www/html/" local="130148244430155382" remote="130148142000000000" Dst="0" />
+<file name="imit_functions.php" server="192.168.234.129//var/www/html/" local="130148244432590692" remote="130148142000000000" Dst="0" />
+<file name="Lang.php" server="192.168.234.129//var/www/html/" local="130148244430210389" remote="130148142000000000" Dst="0" />
+<file name="Memcache.class.php" server="192.168.234.129//var/www/html/" local="130148244430535431" remote="130148142000000000" Dst="0" />
+<file name="sae.db" server="192.168.234.129//var/www/html/" local="130148244432615695" remote="130148142000000000" Dst="0" />
+<file name="sae.sql" server="192.168.234.129//var/www/html/" local="130148244433125759" remote="130148142000000000" Dst="0" />
+<file name="SaeCounter.class.php" server="192.168.234.129//var/www/html/" local="130148244430555433" remote="130148142000000000" Dst="0" />
+<file name="SaeFetchurl.class.php" server="192.168.234.129//var/www/html/" local="130148244431015492" remote="130148142000000000" Dst="0" />
+<file name="SaeImage.class.php" server="192.168.234.129//var/www/html/" local="130148244431035494" remote="130148142000000000" Dst="0" />
+<file name="SaeKVClient.class.php" server="192.168.234.129//var/www/html/" local="130148244431315530" remote="130148142000000000" Dst="0" />
+<file name="SaeMail.class.php" server="192.168.234.129//var/www/html/" local="130148244431300528" remote="130148142000000000" Dst="0" />
+<file name="SaeMysql.class.php" server="192.168.234.129//var/www/html/" local="130148244431560561" remote="130148142000000000" Dst="0" />
+<file name="SaeObject.class.php" server="192.168.234.129//var/www/html/" local="130148244431605566" remote="130148142000000000" Dst="0" />
+<file name="SaeRank.class.php" server="192.168.234.129//var/www/html/" local="130148244431860599" remote="130148142000000000" Dst="0" />
+<file name="SaeStorage.class.php" server="192.168.234.129//var/www/html/" local="130148244432030620" remote="130148142000000000" Dst="0" />
+<file name="SaeTaskQueue.class.php" server="192.168.234.129//var/www/html/" local="130148244432110631" remote="130148142000000000" Dst="0" />
+<file name="sae_functions.php" server="192.168.234.129//var/www/html/" local="130148244433170765" remote="130148142000000000" Dst="0" />
+</dwsync>

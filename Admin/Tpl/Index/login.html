@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/>
+<title>{$title}</title>
+<!--CSS --><!--Reset Stylesheet -->
+<link rel="stylesheet"href="__PUBLIC__/css/reset.css"type="text/css"media="screen"/>
+<!--Main Stylesheet -->
+<link rel="stylesheet"href="__PUBLIC__/css/style2.css"type="text/css"media="screen"/>
+<!--Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+<link rel="stylesheet"href="__PUBLIC__/css/invalid.css"type="text/css"media="screen"/>
+<!--Javascripts --><!--jQuery --><script type="text/javascript" src="__PUBLIC__/scripts/jquery.min.js"></script><!--jQuery Configuration --><!--Facebox jQuery Plugin -->
+</head>
+<body id="login">
+<div id="login-wrapper"class="png_bg">
+ <div id="login-top">
+  <h1>Simpla Admin</h1>
+  <!--Logo (221px width) --> <img id="logo"src="__PUBLIC__/images/logo.png"alt="Simpla Admin logo"/></div>
+ <!--End #logn-top -->
+ <div id="login-content">
+  <div class="notification information png_bg">
+   <div id="tips">请输入帐号密码登录!</div>
+  </div>
+  <p>
+   <label>Username</label>
+   <input class="text-input"type="text"name="username"id="username"/>
+  </p>
+  <div class="clear"></div>
+  <p>
+   <label>Password</label>
+   <input class="text-input"type="password"name="password"id="password"/>
+  </p>
+  <div class="clear"></div>
+  <input class="button"type="submit"value="登录"id="loginbutton"onclick="return false"/>
+ </div>
+ <!--End #login-content --></div>
+<!--End #login-wrapper --><include file="Public:footer"/>
+</body>
+</html>
+<literal>
+<script>$(document).ready(function(a){var b='<img src="__PUBLIC__/images/loading.gif" style=" margin-bottom:-3px;" />正在登录...';$("#loginbutton").click(function(c){if($("#username").val()==""){$("#tips").html("请输入帐号!")}else if($("#password").val()==""){$("#tips").html("请输入密码!")}else{$("#tips").html(b);$.post("__URL__/login_do",{username:$("#username").val(),password:$("#password").val()},function(d){if(d.status==1){$("#tips").html('<img src="__PUBLIC__/images/loading.gif" style=" margin-bottom:-3px;" />登录成功!,正在跳转!');setTimeout("window.location.href='__APP__'",1500)}else{$("#tips").html(d.info)}},'json')}})});</script></literal>

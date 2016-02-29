@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AbstractMessage.php" server="192.168.234.129//var/www/html/" local="130148244354164411" remote="130148142000000000" Dst="0" />
+<file name="AcknowledgeMessage.php" server="192.168.234.129//var/www/html/" local="130148244354184412" remote="130148142000000000" Dst="0" />
+<file name="ArrayCollection.php" server="192.168.234.129//var/www/html/" local="130148244354534432" remote="130148142000000000" Dst="0" />
+<file name="AsyncMessage.php" server="192.168.234.129//var/www/html/" local="130148244354554433" remote="130148142000000000" Dst="0" />
+<file name="CommandMessage.php" server="192.168.234.129//var/www/html/" local="130148244354804447" remote="130148142000000000" Dst="0" />
+<file name="ErrorMessage.php" server="192.168.234.129//var/www/html/" local="130148244354964457" remote="130148142000000000" Dst="0" />
+<file name="RemotingMessage.php" server="192.168.234.129//var/www/html/" local="130148244355094474" remote="130148142000000000" Dst="0" />
+</dwsync>

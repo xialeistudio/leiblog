@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<script src="__PUBLIC__/scripts/jquery.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/scripts/jquery.uploadify.min.js" type="text/javascript"></script>
+<link href="__PUBLIC__/images/skin.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #EEF2FB;
+	font-family:微软雅黑;
+}
+.button{
+	border:1px solid #FFFFFF;
+	cursor:pointer;
+	font-weight: bold;
+	background-color: #3DA1DD;
+	font-size: 14px;
+	color: #FFFFFF;
+	font-family:微软雅黑;
+	margin:0 0 0 120px;
+	}
+</style>
+<script>
+$(document).ready(function(e) {
+    $("#formsubmit").click(function(e) {
+        if(confirm('确定删除?')){
+			$("#form").submit();
+		}
+		return false;
+    });
+});
+function published(v,k){
+	$.post('__URL__/categoryPublished',{id:v,value:k},function(data){
+			window.location.reload();
+		})
+}
+function show_nav(v,k){
+	$.post('__URL__/categoryShowNav',{id:v,value:k},function(data){
+			if(data.status==1)
+				window.location.reload();
+			else{
+				alert(data.info);
+				}
+		},'json')
+	}
+function od(i,v){
+	var value=prompt('请输入排序值.',v);
+		if(value!=null){
+			$.post('__URL__/categoryOd',{id:i,od:value},
+			function(data){
+				if(data.status==1){
+					window.location.reload();
+				}
+				else{
+					alert(data.info);
+					}
+				},'json');	
+		}
+}
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="17" valign="top" background="__PUBLIC__/images/mail_leftbg.gif">
+    <img src="__PUBLIC__/images/left-top-right.gif" width="17" height="29" /></td>
+    <td valign="top" background="__PUBLIC__/images/content-bg.gif"><table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" class="left_topbg" id="table2">
+      <tr>
+        <td height="31">
+         <div class="titlebt" style="font-family:微软雅黑">分类列表</div></td>
+      </tr>
+    </table></td>
+    <td width="16" valign="top" background="__PUBLIC__/images/mail_rightbg.gif"><img src="__PUBLIC__/images/nav-right-bg.gif" width="16" height="29" /></td>
+  </tr>
+  <tr>
+    <td valign="middle" background="__PUBLIC__/images/mail_leftbg.gif">&nbsp;</td>
+    <td valign="top" bgcolor="#F7F8F9"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td colspan="2" valign="top">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" valign="top"><span class="left_bt">感谢您使用LeiBlog博客管理系统</span><br>
+            <span class="left_txt">&nbsp;<img src="__PUBLIC__/images/ts.gif" width="16" height="16" /> 提示:为保证前台效果，导航栏显示的菜单上限为4个
+            <br />
+            <span id="info" style="margin:0 0 0 40px;"></span>
+</span></td>
+        <td width="7%">&nbsp;</td>
+        <td width="40%" valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="4">
+        <form action="categoryDelete" method="post" id="form">
+         <table width="500" border="0" style="color:#666;font-size:12px">
+           <tr>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td colspan="2" align="center"><a href="__URL__/categoryAdd">添加分类</a> | <a href="javascript:void(0)" id="formsubmit">删除分类</a></td>
+          </tr>
+          <tr>
+           <td width="32" align="center">全选</td>
+           <td width="160" align="center">分类名称</td>
+           <td width="69" align="center">状态</td>
+           <td width="104" align="center">导航栏显示</td>
+           <td width="113" align="center">排序</td>
+          </tr>
+          <volist name="list" id="id">
+          <tr>
+           <td width="32" align="center"><input type="checkbox" name="id[]" value="{$id.id}" class="check" /></td>
+           <td width="160" align="center"><a href="__URL__/categoryEdit/id/{$id.id}">{$id.name}</a>
+           </td>
+           <td width="69" align="center">
+           <eq name="id.published" value="1">
+           		<img src="__PUBLIC__/images/toolbar/p.png" onclick="published({$id.id},0)" />
+            <else />
+            	<img src="__PUBLIC__/images/toolbar/x.png" onclick="published({$id.id},1)" />
+            </eq>
+           </td>
+           <td width="104" align="center">
+            <eq name="id.show_nav" value="1">
+           		<img src="__PUBLIC__/images/toolbar/p.png" onclick="show_nav({$id.id},0)" />
+            <else />
+            	<img src="__PUBLIC__/images/toolbar/x.png" onclick="show_nav({$id.id},1)" />
+            </eq>
+           </td>
+           <td width="113" align="center"><span style="cursor:pointer" onclick="od({$id.id},{$id.od})">{$id.od}</span></td>
+          </tr>
+		</volist>
+         </table>
+         </form>
+        </td>
+      </tr>
+      <tr>
+       <td colspan="2" valign="top"><!--JavaScript部分-->
+
+              <!--HTML部分-->
+          <TABLE class=main_tab id=mainTable cellSpacing=0
+cellPadding=0 width=100% border=0>
+                <!--关于TBODY标记-->
+                <TBODY style="DISPLAY: block">
+                  <TR>
+                    <TD vAlign=top>
+</TD>
+                  </TR>
+                  <tr>
+                  <td style="padding:0 0 0 40px">
+	
+                  </td>
+                  </tr>
+           </TBODY>
+                <!--关于cells集合-->
+                <TBODY style="DISPLAY: none">
+                </TBODY>
+                <!--关于tBodies集合-->
+                <TBODY style="DISPLAY: none">
+                </TBODY>
+                <!--关于display属性-->
+                <TBODY style="DISPLAY: none">
+                </TBODY>
+         </TABLE></td>
+        <td>&nbsp;</td>
+        <td valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="40" colspan="4"><table width="100%" height="1" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="font-size:13px;color:#555">{$page}</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td width="2%">&nbsp;</td>
+        <td width="51%" class="left_txt"><img src="__PUBLIC__/images/icon-mail2.gif" width="16" height="11"> 客户服务邮箱：1065890063@qq.com<br></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+    <td background="__PUBLIC__/images/mail_rightbg.gif">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="bottom" background="__PUBLIC__/images/mail_leftbg.gif"><img src="__PUBLIC__/images/buttom_left2.gif" width="17" height="17" /></td>
+    <td background="__PUBLIC__/images/buttom_bgs.gif"><img src="__PUBLIC__/images/buttom_bgs.gif" width="17" height="17"></td>
+    <td valign="bottom" background="__PUBLIC__/images/mail_rightbg.gif"><img src="__PUBLIC__/images/buttom_right2.gif" width="16" height="17" /></td>
+  </tr>
+</table>	
+</body>
+</html>

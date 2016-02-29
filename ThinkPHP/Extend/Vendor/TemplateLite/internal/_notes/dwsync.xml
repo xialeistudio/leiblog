@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="compile.compile_config.php" server="192.168.234.129//var/www/html/" local="130148244364410068" remote="130148142000000000" Dst="0" />
+<file name="compile.compile_custom_block.php" server="192.168.234.129//var/www/html/" local="130148244364485077" remote="130148142000000000" Dst="0" />
+<file name="compile.compile_custom_function.php" server="192.168.234.129//var/www/html/" local="130148244364685102" remote="130148142000000000" Dst="0" />
+<file name="compile.compile_if.php" server="192.168.234.129//var/www/html/" local="130148244364725108" remote="130148142000000000" Dst="0" />
+<file name="compile.generate_compiler_debug_output.php" server="192.168.234.129//var/www/html/" local="130148244364930134" remote="130148142000000000" Dst="0" />
+<file name="compile.include.php" server="192.168.234.129//var/www/html/" local="130148244364980140" remote="130148142000000000" Dst="0" />
+<file name="compile.parse_is_expr.php" server="192.168.234.129//var/www/html/" local="130148244365205168" remote="130148142000000000" Dst="0" />
+<file name="compile.section_start.php" server="192.168.234.129//var/www/html/" local="130148244365265176" remote="130148142000000000" Dst="0" />
+<file name="debug.tpl" server="192.168.234.129//var/www/html/" local="130148244365475203" remote="130148142000000000" Dst="0" />
+<file name="template.build_dir.php" server="192.168.234.129//var/www/html/" local="130148244365485204" remote="130148142000000000" Dst="0" />
+<file name="template.config_loader.php" server="192.168.234.129//var/www/html/" local="130148244365805245" remote="130148142000000000" Dst="0" />
+<file name="template.destroy_dir.php" server="192.168.234.129//var/www/html/" local="130148244365820247" remote="130148142000000000" Dst="0" />
+<file name="template.generate_debug_output.php" server="192.168.234.129//var/www/html/" local="130148244366125280" remote="130148142000000000" Dst="0" />
+<file name="template.fetch_compile_include.php" server="192.168.234.129//var/www/html/" local="130148244366075277" remote="130148142000000000" Dst="0" />
+</dwsync>

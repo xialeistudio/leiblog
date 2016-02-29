@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #EEF2FB;
+}
+-->
+.footer{
+	text-align:center;
+	color:#666;
+	font-family:"Comic Sans MS", cursive, Consolas;
+	font-size:12px;
+}
+</style>
+</head>
+
+<body>
+<div class="footer">IP:{$ip} | Address:<span style="font-family:微软雅黑">{$addr.country}</span> | NowTime:{$time|date='Y-m-d',###} <span id="Clock"></span></div>
+</body>
+</html>
+<script language="javascript"> 
+function tick()
+{
+var hours,minutes,seconds,xfile; 
+var intHours,intMinutes,intSeconds; 
+var today; 
+today=new Date(); 
+intHours=today.getHours(); 
+intMinutes=today.getMinutes(); 
+intSeconds=today.getSeconds();
+if(intHours==0) 
+{ 
+ hours="12:"; 
+ xfile=""; 
+ } 
+else if(intHours<12) 
+ { 
+ hours=intHours+":"; 
+ xfile=""; 
+ } 
+ else if(intHours==12) 
+ { 
+ hours="12:"; 
+ xfile=""; 
+ } 
+ else 
+ { 
+ intHours=intHours; 
+ hours=intHours+":"; 
+ xfile=""; 
+} 
+
+if(intMinutes<10) 
+{ 
+minutes="0"+intMinutes+":"; 
+} 
+else 
+{ 
+minutes=intMinutes+":"; 
+} 
+if(intSeconds<10) 
+{ 
+seconds="0"+intSeconds; 
+} 
+else 
+{ 
+seconds=intSeconds+""; 
+} 
+var timeString=xfile+hours+minutes+seconds; 
+document.getElementById('Clock').innerHTML=timeString; 
+
+window.setTimeout("tick();",100);
+ }
+window.onload=tick; 
+</script> 

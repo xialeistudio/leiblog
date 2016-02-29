@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{$conf.SiteName}-基于ThinkPHP的个人博客系统</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/1_style.css" />
+<script type='text/javascript' src='__PUBLIC__/scripts/jquery.js'></script>
+<script type="text/javascript" src="__PUBLIC__/scripts/3_hoveraccordion.js"></script>
+<script type="text/javascript" src="__PUBLIC__/scripts/4_weisay.js"></script>
+<script type="text/javascript" src="__PUBLIC__/scripts/5_lazyload.js"></script><script type="text/javascript">jQuery(function() {  
+    	jQuery(".articles img").not("#respond_box img").lazyload({
+        	placeholder:"__PUBLIC__/images/logo.jpg",
+            effect:"fadeIn",
+          });
+  });
+</script>
+</head>
+<body>
+<div id="page"><!--start--header-->
+ <div id="header">
+  <div id="top">
+   <div id="top_logo">
+    <div id="blogname"><a href="">{$conf.SiteName}</a>
+     <div id="blogtitle">{$conf.Mark}</div>
+    </div>
+   </div>
+   <div class="search">
+    <!--
+    <form id="searchform" method="get" action="/index.php/Index/index">
+     <input type="text" value="" name="action" size="30" />
+     <button type="submit">搜索</button>
+    </form>
+    -->
+   </div>
+   <div class="clear"></div>
+  </div>
+  <div class="topnav">
+   <ul id="nav" class="menu">
+    <li id="menu-item-14" class=""><a href="/">首页</a></li>
+    <volist name="nav" id="row">
+    <eq name="row.show_nav" value="1">
+    <li id="menu-item-25" class=""><a href="{:U('Category/'.$row['id'])}">{$row.name}</a></li>
+    </eq>
+    </volist>
+   </ul>
+  </div>
+ </div>
+ <!--end-head-->
+   <div id="roll">
+  <div title="回到顶部" id="roll_top"></div>
+  <div title="转到底部" id="fall"></div>
+ </div>
+ <!--start-content-->
+ <div id="content">
+  <div class="main">
+  <volist name="article_list" id="art">
+   <ul  class='post' id="post-75">
+    <li>
+     <div class="article">
+      <h2><a href="{:U('Article/'.$art['aid'])}" rel="bookmark" title="详细阅读 ">{$art.atitle} ---阅读全文</a><span class="new"></span></h2>
+      <div class="thumbnail_box">
+       <div class="thumbnail"></div>
+       <!-- 截图 -->
+       <div class="thumbnail">
+       <a href="#" rel="bookmark" title="">
+       <img class="home-thumb" src="__PUBLIC__/uploads/thumb_{$art.img}" width="140px" height="100px" alt=""/>
+       </a>
+       </div>
+      </div>
+      <div class="entry_post">{$art.atitle_alias|ubb}</div>
+      <div class="clear"></div>
+      <div class="info"> 发布时间：{$art.created|date='Y-m-d',###} |  | 分类：<a href="{:U('Category/'.$art['cat_id'])}" title="" rel="category tag">{$art.cname}</a></div>
+      <div class="comments_num"><a href="{:U('Article/'.$art['aid'])}" title="">评论({$art.acomment})</a></div>
+     </div>
+    </li>
+   </ul>
+   </volist>
+   <div class="navigation">
+    <div class='pagination'>{$page}</div>
+   </div>
+  </div>
+  <!--end-main--><!--start-sidebar--><!--start-sidebar-->
+  <div id="sidebar">
+   <div class="widget"></div>
+   <div class="widget">
+    <div class="top_comment">
+     <h3>博主个人信息</h3>
+     <ul>
+      <li><!--<a title=''><img alt='' src="Upload/photo_511341c96716c.jpg"  class='avatar avatar-38 photo' height='200' width='200' /></a>-->主人：{$conf.UserName}</li>
+     </ul>
+    </div>
+   </div>
+   <div class="widget">
+    <div class="r_widget">
+     <h3>分类目录</h3>
+     <ul>
+     <volist name="nav" id="vo">
+      <li class="cat-item cat-item-10">◆◆&nbsp;&nbsp;<a href="{:U('Category/'.$vo['id'])}" title="">{$vo.name}({$vo.nums})</a></li>
+      </volist>
+     </ul>
+    </div>
+   </div>
+     <div class="widget">
+    <div id="tab-title">
+     <h3><span class="selected">热评日志</span><span>最新日志</span><span>随机日志</span></h3>
+     <div id="tab-content">
+      <ul >
+		<volist name="art_list" id="vovo">
+   <li>◆<a href="{:U('Article/'.$vovo['aid'])}" rel="bookmark" title="">{$vovo.atitle}</a></li>
+	</volist>
+      </ul>
+      <ul class="hide" >
+      <volist name="new_art" id="xid">
+       <li>◆<a href="{:U('Article/'.$xid['aid'])}" rel="bookmark" title="">{$xid.atitle}</a></li>	
+       </volist>
+      </ul>
+      <ul class="hide" >
+      <volist name="rand_art" id="id">
+       <li>◆<a href="{:U('Article/'.$id['aid'])}" rel="bookmark" title="">{$id.atitle}</a></li>	
+       </volist>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="widget"></div>
+   <div class="widget">
+    <div class="r_comment">
+     <h3>最新评论</h3>
+     <ul>
+     <volist name="cmt_data" id="id">
+      <li><img alt='' src='__PUBLIC__/images/user.gif' class='avatar avatar-32 photo' height='32' width='32' />{$id.name}<br />
+       <a href="{:U('Article/'.$id['art_id'])}" title="">{$id.content}</a></li>
+       </volist>
+     </ul>
+    </div>
+   </div>
+   <div class="widget">
+    <div class="r_statistics">
+     <h3>博客统计</h3>
+     <ul>
+      <li>分类总数：{$cat_nums}</li>
+      <li>博文总数：{$art_nums}篇</li>
+      <li>评论总数：{$cmt_nums}篇</li>
+      <li>附件数量：{$ups_nums}个</li>
+      <li>当前时间：{$time|date='Y-m-d H:i:s',###}</li>
+     </ul>
+    </div>
+   </div>
+   <div class="widget">
+    <div class="r_links">
+     <h3>友情链接</h3>
+     <div class="v-links">
+      <ul>
+      <volist name="link" id="link">
+       <li>◆<a href="{$link.url}" target="_blank">{$link.name}</a></li>
+       </volist>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!--end-sidebar--><!--end-sidebar--></div>
+ <!--end-content--> 
+ ﻿
+ <div class="clear"></div>
+ <div id="footer">Copyright &copy; 2012 {$conf.SiteName}. 联系电话:{$conf.Phone} 邮箱:<a href="mailto:{$conf.Email}" rel="external">{$conf.Email}</a></div>
+</div>
+</body>
+</html>
